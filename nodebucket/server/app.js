@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const path = require("path");
 const mongoose = require("mongoose");
+const Employee = require("./models/employee");
 
 /**
  * App configurations
@@ -24,7 +25,7 @@ app.use("/", express.static(path.join(__dirname, "../dist/nodebucket")));
 const port = 3000; // server port
 
 const conn =
-  "mongodb+srv://web450_user:Pm7647nblq8FQQjC@buwebdev-cluster-1.duvph.mongodb.net/nodebucket?retryWrites=true&w=majority";
+  "mongodb+srv://nodebucket_admin:nm8Sj3frqSmY4C3N@buwebdev-cluster-1.duvph.mongodb.net/nodebucket?retryWrites=true&w=majority";
 
 /**
  * Database connection
@@ -34,6 +35,7 @@ mongoose
     promiseLibrary: require("bluebird"),
     useUnifiedTopology: true,
     useNewUrlParser: true,
+    useCreateIndex: true,
   })
   .then(() => {
     console.debug(`Connection to the database instance was successful`);
@@ -46,6 +48,29 @@ mongoose
  * API(s) go here...
  */
 
+/**
+ * findEmployeeById
+ */
+app.get("/api/employees/:empId", async (req, res) => {
+  try {
+    Employee.findOne({ empId: req.params.empId }, function (err, employee) {
+      if (err) {
+        console.log(err);
+        res.status(500).send({
+          message: "Internal server error!",
+        });
+      } else {
+        console.log(employee);
+        res.json(employee);
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({
+      message: "Internal server error",
+    });
+  }
+});
 
 /**
  * Create and start server
