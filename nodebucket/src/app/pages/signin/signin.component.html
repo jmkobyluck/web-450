@@ -2,20 +2,22 @@
   <div fxFlex *ngIf="error">
     {{ error }}
   </div>
-  <mat-card>
+  <mat-card fxFlex class="mat-elevation-z8">
     <mat-card-title> Employee Sign-In Page </mat-card-title>
     <mat-card-subtitle>
       You must enter a valid employeeID to proceed
     </mat-card-subtitle>
     <form [formGroup]="form" (ngSubmit)="login(); form.reset()">
       <mat-card-content>
-        <mat-form-field>
-          <input
-            matInput
-            [formControl]="form.controls['empId']"
-            placeholder="Employee ID"
-          />
-        </mat-form-field>
+        <mat-card class="mat-elevation-z0" fxLayout="column" fxLayoutGap="10px">
+          <mat-form-field fxFlex appearance="fill">
+            <input
+              matInput
+              [formControl]="form.controls['empId']"
+              placeholder="Employee ID"
+            />
+          </mat-form-field>
+        </mat-card>
       </mat-card-content>
 
       <mat-card-actions>

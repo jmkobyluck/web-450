@@ -1,3 +1,11 @@
+// /*
+// ============================================
+// ; Title: Nodebucket
+// ; Author: Professor Krasso
+// ; Modified By: Jonathan Kobyluck
+// ;===========================================
+// */
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 

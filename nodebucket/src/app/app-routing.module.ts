@@ -1,3 +1,11 @@
+// /*
+// ============================================
+// ; Title: Nodebucket
+// ; Author: Professor Krasso
+// ; Modified By: Jonathan Kobyluck
+// ;===========================================
+// */
+
 import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { Component, NgModule } from '@angular/core';

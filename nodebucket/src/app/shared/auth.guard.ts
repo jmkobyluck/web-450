@@ -1,3 +1,11 @@
+// /*
+// ============================================
+// ; Title: Nodebucket
+// ; Author: Professor Krasso
+// ; Modified By: Jonathan Kobyluck
+// ;===========================================
+// */
+
 import { Injectable } from '@angular/core';
 import {
   CanActivate,

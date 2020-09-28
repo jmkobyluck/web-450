@@ -1,3 +1,11 @@
+// /*
+// ============================================
+// ; Title: Nodebucket
+// ; Author: Professor Krasso
+// ; Modified By: Jonathan Kobyluck
+// ;===========================================
+// */
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
