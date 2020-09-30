@@ -6,7 +6,6 @@
 // ;===========================================
 // */
 
-
 /**
  * Require statements
  */
@@ -17,6 +16,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const mongoose = require("mongoose");
 const Employee = require("./models/employee");
+const EmployeeApi = require("./routes/employee-api"); // imports the employeeApi
 
 /**
  * App configurations
@@ -56,30 +56,7 @@ mongoose
 /**
  * API(s) go here...
  */
-
-/**
- * findEmployeeById
- */
-app.get("/api/employees/:empId", async (req, res) => {
-  try {
-    Employee.findOne({ empId: req.params.empId }, function (err, employee) {
-      if (err) {
-        console.log(err);
-        res.status(500).send({
-          message: "Internal server error!",
-        });
-      } else {
-        console.log(employee);
-        res.json(employee);
-      }
-    });
-  } catch (e) {
-    console.log(e);
-    res.status(500).send({
-      message: "Internal server error",
-    });
-  }
-});
+app.use('/api/employees', EmployeeApi);
 
 /**
  * Create and start server

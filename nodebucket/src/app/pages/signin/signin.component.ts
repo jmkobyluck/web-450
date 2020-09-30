@@ -42,12 +42,15 @@ export class SigninComponent implements OnInit {
 
   login() {
     const empId = this.form.controls['empId'].value;
-    this.http.get('/api/employees/' + empId).subscribe(res => {
+    console.log(empId);
+    this.http.get('/api/employees/' + empId).subscribe((res) => {
       if (res) {
         this.cookieService.set('session_user', empId, 1);
+        this.router.navigate(['/']);
       } else {
-        this.error = 'The employee ID you entered is invalid, please try again.';
+        this.error =
+          'The employee ID you entered is invalid, please try again.';
       }
-    })
+    });
   }
 }
