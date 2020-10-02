@@ -11,7 +11,7 @@ const Schema = mongoose.Schema;
 
 
 let itemSchema = new Schema({
-  test: { type: String },
+  text: { type: String },
 });
 
 module.exports = itemSchema;
