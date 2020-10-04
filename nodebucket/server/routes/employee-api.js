@@ -177,7 +177,7 @@ router.put("/:empId/tasks", async (req, res) => {
           done: req.body.done,
         });
 
-        employee.save(function (err, updatedEmployee) {
+        employee.save(function (err, updateEmployee) {
           if (err) {
             console.log(err);
 
@@ -196,7 +196,7 @@ router.put("/:empId/tasks", async (req, res) => {
             const updateTaskOnSaveSuccessResponse = new BaseResponse(
               "200",
               "Update successful",
-              updatedEmployee
+              updateEmployee
             );
 
             res.json(updateTaskOnSaveSuccessResponse.toObject());
@@ -259,7 +259,7 @@ router.delete("/:empId/tasks/:taskId", async (req, res) => {
                 .status(500)
                 .send(deleteToDoItemOnSaveMongoDbErrorResponse.toObject());
             } else {
-              console.log(emp1);
+              console.log(updatedTodoItemEmployee);
 
               const deleteToDoItemSuccessResponse = new BaseResponse(
                 "200",
@@ -304,7 +304,7 @@ router.delete("/:empId/tasks/:taskId", async (req, res) => {
           const deleteTaskNotFoundResponse = new ErrorResponse(
             "200",
             "Unable to locate requested task",
-            updatedEmployee
+            null
           );
 
           res.status(200).send(deleteTaskNotFoundResponse.toObject());
