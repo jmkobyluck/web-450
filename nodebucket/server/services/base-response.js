@@ -1,3 +1,11 @@
+// /*
+// ============================================
+// ; Title: Nodebucket
+// ; Author: Professor Krasso
+// ; Modified By: Jonathan Kobyluck
+// ;===========================================
+// */
+
 class BaseResponse {
   constructor(httpCode, message, data) {
     this.httpCode = httpCode;
