@@ -27,6 +27,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CookieService } from 'ngx-cookie-service';
 import { AboutComponent } from './pages/about/about.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { AboutComponent } from './pages/about/about.component';
     AuthLayoutComponent,
     SigninComponent,
     AboutComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
