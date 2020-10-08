@@ -3,6 +3,8 @@
 // ; Title: Nodebucket
 // ; Author: Professor Krasso
 // ; Modified By: Jonathan Kobyluck
+// ; Data: 7 October 2020
+// ; Description: 
 // ;===========================================
 // */
 
@@ -28,7 +30,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CookieService } from 'ngx-cookie-service';
 import { AboutComponent } from './pages/about/about.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-
+import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-task-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     AuthLayoutComponent,
     SigninComponent,
     AboutComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CreateTaskDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +59,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDialogModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

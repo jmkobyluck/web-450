@@ -1,33 +1,44 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
+import { Observable } from 'rxjs';
+import { Item } from './item.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  sessionUser: string;
-
-  constructor(private cookieService: CookieService, private http: HttpClient) {
-    this.sessionUser = this.cookieService.get('session_user'); // get the logged empId
-  }
+  constructor(private http: HttpClient) {}
 
   /**
    * findAllTasks
    */
-  findAllTasks() {
-    return this.http.get('/api/employees/' + this.sessionUser + '/tasks');
+  findAllTasks(empId: string): Observable<any> {
+    return this.http.get('/api/employees/' + empId + '/tasks');
   }
 
   /**
    * createTask
    */
+  createTask(empId: string, task: string): Observable<any> {
+    return this.http.post('/api/employees/' + empId + '/tasks', {
+      text: task,
+    });
+  }
 
   /**
    * updateTask
    */
+  updateTask(empId: string, todo: Item[], done: Item[]): Observable<any> {
+    return this.http.put('/api/employees' + empId + '/tasks', {
+      todo,
+      done,
+    });
+  }
 
   /**
    * deleteTask
    */
+  deleteTask(empId: string, taskId: string): Observable<any> {
+    return this.http.delete('/api/employees/' + empId + '/tasks/' + taskId);
+  }
 }
