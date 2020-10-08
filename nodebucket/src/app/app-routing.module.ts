@@ -26,6 +26,8 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
+
+        // only allow route if authorized
         canActivate: [AuthGuard],
       },
       {

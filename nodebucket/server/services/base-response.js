@@ -8,6 +8,7 @@
 // ;===========================================
 // */
 
+// constructing base response parameters
 class BaseResponse {
   constructor(httpCode, message, data) {
     this.httpCode = httpCode;
@@ -25,4 +26,5 @@ class BaseResponse {
   }
 }
 
+// exporting the base response
 module.exports = BaseResponse;

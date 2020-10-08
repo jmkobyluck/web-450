@@ -8,6 +8,7 @@
 // ;===========================================
 // */
 
+// constructing error response parameters
 class ErrorResponse {
   constructor(httpCode, message, data) {
     this.httpCode = httpCode;
@@ -25,4 +26,5 @@ class ErrorResponse {
   }
 }
 
+// exporting error response
 module.exports = ErrorResponse;
