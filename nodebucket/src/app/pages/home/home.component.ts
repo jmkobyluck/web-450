@@ -1,3 +1,13 @@
+// /*
+// ============================================
+// ; Title: Nodebucket
+// ; Author: Professor Krasso
+// ; Modified By: Jonathan Kobyluck
+// ; Data: 7 October 2020
+// ; Description: home page
+// ;===========================================
+// */
+
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { DriverProvider } from 'protractor/built/driverProviders';

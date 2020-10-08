@@ -3,6 +3,10 @@
 // ; Title: Nodebucket
 // ; Author: Professor Krasso
 // ; Modified By: Jonathan Kobyluck
+// ; Data: 7 October 2020
+// ; Description: setting up the employee api
+// ; including findEmployeeById, findAllTasks,
+// ; creatTask, updateTask, and deleteTask
 // ;===========================================
 // */
 
