@@ -1,4 +1,4 @@
-// /*
+  // /*
 // ============================================
 // ; Title: Nodebucket
 // ; Author: Professor Krasso
@@ -19,7 +19,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { CreateTaskDialogComponent } from 'src/app/shared/create-task-dialog/create-task-dialog.component';
 
 @Component({
@@ -38,15 +38,15 @@ export class HomeComponent implements OnInit {
   constructor(
     private taskService: TaskService,
     private cookieService: CookieService,
-    private dialog: MatDialogModule
+    private dialog: MatDialog
   ) {
     this.empId = this.cookieService.get('session_user'); // get the active session user
 
     this.taskService.findAllTasks(this.empId).subscribe(
       (res) => {
-        console.log(`--Server response fron findAllTasks--`);
+        console.log(`--Server response from findAllTasks--`);
         console.log(res);
-        this.employee = res['data'];
+        this.employee = res.data;
 
         console.log(`--Employee object--`);
         console.log(this.employee);
@@ -76,6 +76,8 @@ export class HomeComponent implements OnInit {
       );
 
       console.log(`Reordered the existing list of task items`);
+
+      this.updateTaskList(this.empId, this.todo, this.done);
     } else {
       transferArrayItem(
         event.previousContainer.data,
@@ -84,7 +86,7 @@ export class HomeComponent implements OnInit {
         event.currentIndex
       );
 
-      console.log(`Moved tasks item to the container`);
+      console.log(`Moved task item to the container`);
 
       this.updateTaskList(this.empId, this.todo, this.done);
     }
@@ -111,15 +113,25 @@ export class HomeComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((data) => {
       if (data) {
-        this.taskService.createTask(this.empId, data.text).subscribe((res) => {
-          this.employee = res.data;
-        });
+        this.taskService.createTask(this.empId, data.text).subscribe(
+          (res) => {
+            this.employee = res.data;
+          },
+          (err) => {
+            console.log(err);
+          },
+          () => {
+            this.todo = this.employee.todo;
+            this.done = this.employee.done;
+          }
+        );
       }
     });
   }
   deleteTask(taskId: string) {
     if (taskId) {
       console.log(`Task item: ${taskId} was deleted`);
+      console.log(this.empId)
 
       this.taskService.deleteTask(this.empId, taskId).subscribe(
         (res) => {
@@ -128,7 +140,10 @@ export class HomeComponent implements OnInit {
         (err) => {
           console.log(err);
         },
-        () => {}
+        () => {
+          this.todo = this.employee.todo;
+          this.done = this.employee.done;
+        }
       );
     }
   }

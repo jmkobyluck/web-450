@@ -44,7 +44,7 @@
                       <div fxFlex>
                         {{ item.text }}
                       </div>
-                      <div fxFlex dxLayoutAlign="end">
+                      <div fxFlex fxLayoutAlign="end">
                         <button
                           [matMenuTriggerFor]="todoOptions"
                           class="task-options-menu"
@@ -68,7 +68,7 @@
       </div>
 
       <!-- done -->
-      <div>
+      <div fxFlex>
         <mat-card class="mat-elevation-z0">
           <mat-card-title>Done</mat-card-title>
           <mat-card-content>
@@ -89,7 +89,7 @@
                       <div fxFlex>
                         {{ item.text }}
                       </div>
-                      <div fxFlex dxLayoutAlign="end">
+                      <div fxFlex fxLayoutAlign="end">
                         <button
                           [matMenuTriggerFor]="doneOptions"
                           class="task-options-menu"

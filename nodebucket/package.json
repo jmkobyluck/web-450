@@ -1,6 +1,6 @@
 {
   "name": "nodebucket",
-  "version": "1.4.3",
+  "version": "1.4.7",
   "scripts": {
     "ng": "ng",
     "build": "ng build",
@@ -8,6 +8,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "server": "nodemon ./server/app.js",
+    "server-dev": "nodemon ./server/app.js --inspect",
     "start": "ng serve",
     "localhost": "ng build && node ./server/app.js"
   },

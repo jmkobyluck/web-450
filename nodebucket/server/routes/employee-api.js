@@ -277,9 +277,9 @@ router.delete("/:empId/tasks/:taskId", async (req, res) => {
           });
         } else if (doneItem) {
           employee.done.id(doneItem._id).remove();
-
           employee.save(function (err, updatedDoneItemEmployee) {
             if (err) {
+
               console.log(err);
 
               const deleteDoneItemOnSaveMongoDbErrorResponse = new ErrorResponse(
@@ -292,7 +292,8 @@ router.delete("/:empId/tasks/:taskId", async (req, res) => {
                 .status(500)
                 .send(deleteDoneItemOnSaveMongoDbErrorResponse.toObject());
             } else {
-              console.log(emp1);
+
+              console.log(updatedDoneItemEmployee);
 
               const deleteDoneItemSuccessResponse = new BaseResponse(
                 "200",

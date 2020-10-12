@@ -33,6 +33,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-task-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatFormFieldModule,
     MatDialogModule,
     MatMenuModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
