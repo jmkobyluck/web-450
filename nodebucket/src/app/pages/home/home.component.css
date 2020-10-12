@@ -49,3 +49,7 @@ Task management page styles
 .task-options-menu {
   margin-top: -10px;
 }
+
+.remove-button {
+  color: red;
+}
